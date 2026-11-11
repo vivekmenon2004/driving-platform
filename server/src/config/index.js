@@ -3,7 +3,13 @@ import "dotenv/config";
 const config = {
   env: process.env.NODE_ENV || "development",
   port: parseInt(process.env.PORT, 10) || 5000,
-  clientUrl: process.env.CLIENT_URL || "http://localhost:3000",
+  clientUrl:
+    process.env.CLIENT_URL ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : process.env.VERCEL_URL
+        ? `https://${process.env.VERCEL_URL}`
+        : "http://localhost:3000"),
   cookieSecret: process.env.COOKIE_SECRET || "dev_cookie_secret_fallback",
   db: {
     connectionString: process.env.DATABASE_URL,

@@ -2,7 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "description": "The backend is built with Node.js and Express.js using JavaScript ES modules.",
-  "main": "index.js",
+  "main": "src/app.js",
   "scripts": {
     "test": "node --test",
     "start": "node src/server.js",
